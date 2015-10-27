@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$type['title']}-{$GLOBALS['S']['title']}</title>
+<meta name="keywords" content="{$type['keywords']} " />
+<meta name="description" content="{$type['description']} " />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/head.css" />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/main.css" />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/footer.css" />
+<script type="text/javascript">
+var site_dir="{$GLOBALS['WWW']}";
+</script>
+<script src="{$GLOBALS['skin']}js/jquery-1.8.1.js"></script>
+
+<script src="{$GLOBALS['skin']}js/json2.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_storage.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_cookie_storage.js"></script></head>
+
+
+<script src="{$GLOBALS['WWW']}include/js/DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="{$GLOBALS['WWW']}include/js/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{$GLOBALS['WWW']}include/js/kindeditor/lang/zh_CN.js"></script>
+<script src="{$GLOBALS['WWW']}include/js/dyfrom.js" type="text/javascript"></script>
+<script type="text/javascript">
+function postform(){
+	value=$("#title").val();
+	if(!dyfrom_max(value, 100)){
+		alert('标题不能大于100个字符');return false;
+	}
+	value=$("#body").val();
+	if(!dyfrom_max(value, 500)){
+		alert('内容不能大于500个字符');return false;
+	}
+{if($GLOBALS['G_DY']['vercode']==1)}
+	value=$("#vercode").val();
+	if(dyfrom_ajax("{$GLOBALS['WWW']}index.php?c=ajax&a=vercode","vercode="+value)=='false'){
+		alert('验证码输入错误');return false;
+	}
+{/if}
+	return true;
+}
+</script>
+</head>
+
+<body style="background:#E6E6E6">
+
+<div class="wrap w956" id="ny_index">
+  {include="notice.html"}
+    {include="left.html"}
+  <div class="col_2 w728 n-right">
+  <div class="loc">{$positions}</div>
+  <div class="tit"><img src="{$GLOBALS['skin']}images/{$type['tid']}.png" /></div>
+  <div class="con arclist">
+   <div class="content">
+
+       <div class="member_f">
+<form action="{$GLOBALS['WWW']}index.php?c=message&a=add&tid={$type['tid']}" method="post" onsubmit="return postform();">
+
+  
+        
+    <dl><dt>标题：</dt><dd><input name="title" id="title" type="text" class="inp" style="width:300px;" /></dd><dd class="m">{$v['m']}</dd></dl>
+        {foreach $fields as $v}
+    <dl><dt>{$v['name']}：</dt><dd>{$v['input']}</dd></dl>
+    {/foreach}
+    <dl><dt>内容：</dt><dd><script type="text/javascript">$(function(){KindEditor.create("#body",{resizeType : 1,allowPreviewEmoticons : false,allowImageUpload : false,items : ["fontname", "fontsize", "|", "forecolor", "hilitecolor", "bold", "italic", "underline","removeformat", "|", "justifyleft", "justifycenter", "justifyright", "insertorderedlist","insertunorderedlist", "|", "emoticons", "image", "link"]})});</script><textarea name="body" id="body" class="inp" style="width:550px; height:300px;"></textarea></dd><dd class="m">{$v['m']}</dd></dl>
+
+{if($GLOBALS['G_DY']['vercode']==1)}
+       <dl><dt>验证码：</dt><dd><input type="text" name="vercode" id="vercode" class="inp" style="width:80px;"/></dd><dd><img src="{$GLOBALS['WWW']}include/vercode.php" id="vercodeimg" width="60" height="25" onclick="newvercode();" style="cursor:pointer;" /></dd><dd class="m"></dd></dl>
+<script type="text/javascript">
+setTimeout('newvercode()',1000);
+function newvercode(){
+  document.getElementById("vercodeimg").src="{$GLOBALS['WWW']}include/vercode.php?a="+Math.random();
+}
+</script>
+{/if}
+       <dl style="border:0;"><dt>&nbsp;</dt><dd><input type="submit" value="提交留言" class="btnbig" /></dd></dl>
+</form>
+       </div>
+    </div>
+  </div>
+  </div>
+  <div class="clear"></div>
+</div>
+ 
+{include="bottom.html"}
+</body>
+</html>

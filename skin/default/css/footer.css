@@ -1,0 +1,21 @@
+#end_bg{ background:url(../images/zhuowei_08.png) left top repeat-x; height:39px; line-height:39px; color:#fff; position:fixed; display:block; bottom:0px; width:100%; z-index:999}
+#end_bg a{ color:#fff; padding:0 10px;}
+
+
+
+/*footer*/
+.Footer{width:100%;background:#e9e9e9;padding:15px 0px;position:relative; margin-top: 20px;}
+.FootCon{width:980px;height:48px;margin:0 auto;position:relative;}
+.FootCon .bqCon{width:400px;height:48px;position:absolute;left:0px;}
+.FootCon .bqCon p{color:#858585;line-height:24px;height:24px;}
+.FootCon .FootNav{width:570px;height:48px; text-align: right;}
+.FootCon .FootNav  a{display:inline-block;padding-left:13px;color:#858585;font-size:12px;}
+.FootCon .FootNav  span{color:#858585;}
+.FootCon .FootNav a:hover{color:#ff9d02;}
+.FootCon .FootNav p{ color: #999; margin-bottom: 10px;}
+
+.onmouse{ cursor: pointer;}
+
+#end{ position: relative;}
+#end .show_wx{ position: absolute; right: 0px; top:-110px; z-index: 999; display: none;}
+.FootCon .show_wx_s{ position: absolute; right: 0px; top:-85px; z-index: 999; display: none;}

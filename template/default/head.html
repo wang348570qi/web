@@ -1,0 +1,22 @@
+<div class="head">
+    <div class="wrap w980">
+        <h1 class="col_1"><a href="/" target="_blank"><img src="{$GLOBALS['skin']}images/logo_n.jpg" alt="logo"></a></h1>
+       
+        <div class="nav col_2 w615" id="menu">
+        <div class="top_wz"><a href="#"onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://localhost');">设为首页</a>| <a href="#" onClick="window.external.AddFavorite('http://localhost','本地网站')">加入收藏</a> | <a href="/index.php?c=article&a=type&tid=70">联系我们</a></div>
+          <ul>
+          <li><a href="/">首页</a></li>
+          {loop table="classtype" mshow='1'}
+              <li><a href="{$v['url']}">{$v['classname']}</a>
+                <div class="showCate top38" style="top:38px;">
+                 {loop table="classtype" pid="$v['tid']" as="v1"}
+                  <p><a href="{$v1['url']}">{$v1['classname']}</a></p>
+                  {/loop}
+                </div>
+              </li>
+          {/loop}
+     
+    </ul>
+        </div>
+    </div>
+</div>

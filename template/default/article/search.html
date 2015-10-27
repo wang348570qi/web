@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$type['title']}-{$GLOBALS['S']['title']}</title>
+<meta name="keywords" content="{$type['keywords']} " />
+<meta name="description" content="{$type['description']} " />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/head.css" />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/main.css" />
+<link type="text/css" rel="stylesheet" href="{$GLOBALS['skin']}css/footer.css" />
+<script type="text/javascript">
+var site_dir="{$GLOBALS['WWW']}";
+</script>
+<script src="{$GLOBALS['skin']}js/jquery-1.8.1.js"></script>
+
+<script src="{$GLOBALS['skin']}js/json2.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_storage.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_cookie_storage.js"></script></head>
+
+<body style="background:#E6E6E6">
+
+<div class="wrap w956" id="ny_index">
+  {include="notice.html"}
+    {include="left.html"}
+  <div class="col_2 w728 n-right">
+  <div class="loc">{$positions}</div>
+  <div class="tit"><img src="{$GLOBALS['skin']}images/s.png" /></div>
+  <div class="con arclist">
+     <ul class="c list">
+       {if($lists)}
+       {foreach $lists as $v}
+       <li><span{if(newest($v['addtime'],24))} style="color:red"{/if}>[{fun date('Y-m-d',$v['addtime'])}]</span><a href="{$v['url']}" style="{$v['style']}" target="_blank">{$v['title']}</a></li>
+       {/foreach}
+       {else}
+       没有找到任何内容。
+       {/if}
+       </ul>
+       <ul class="c pages">{$pages}</ul>
+  </div>
+  </div>
+  <div class="clear"></div>
+</div>
+{include="bottom.html"}
+</body>
+
+</html>

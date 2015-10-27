@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<META content="IE=10.000" http-equiv="X-UA-Compatible">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="source/admin/template/style/admin.css" rel="stylesheet" type="text/css" />
+<?php if($a==='headers'){ ?>
+<script src="include/js/jsmain.js" type="text/javascript"></script>
+<script src="include/js/adminuser.js" type="text/javascript"></script>
+<script src="include/js/admin.js" type="text/javascript"></script>
+<?php } ?>
+<script type="text/javascript">
+function  heightSet(thisFrame){
+      if($.browser.mozilla || $.browser.msie){
+          bodyHeight =window.frames["a_update"].document.body.scrollHeight;
+      }else{
+          bodyHeight =thisFrame.contentWindow.document.documentElement.scrollHeight;
+      }
+       document.getElementById("a_update").height=bodyHeight;  
+
+}
+</script>
+</head>
+
+<body<?php if($a=='left'){echo ' class="leftbody" style="overflow-x:hidden;"';}?>>
+<?php if($a==='headers'){ ?>
+<div class="hd">
+    <div class="top"><span><a href="?c=a_sys&a=ecache" target="main">更新系统缓存</a> | <a href="index.php" target="_blank">前台首页</a><?php include_once('include/fun/verification.php');echo verification(2); ?></span>当前登录：<?php echo $_SESSION['auser']['auser']; ?>&nbsp;&nbsp;<a href="?c=a_adminuser&a=edituser" target="main">[修改资料]</a>&nbsp;&nbsp;<a href="?c=login&a=out" target="_parent">[退出登录]</a></div>
+	<div style="height:80px;"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="50%"><img src="source/admin/template/images/logo.png" border="0" /></td>
+    <td width="50%"><div style="padding-right:20px;" align="right">
+      <p><a href="tencent://message/?uin=1127992380&amp;Menu=yes"><br /><img border="0" src="source/admin/template/images/wp_logo.png" alt="点击这里给我发消息" title="点击这里给我发消息" /></a></p>
+    </div></td>
+  </tr>
+</table>
+</div>
+    <div class="mu">
+      <div class="logo<?php echo verification(7); ?>"></div>
+      <div class="menu">
+      	<a href="#" onclick="JumpFrame('?a=left','?c=a_article');">内容管理</a>
+      	<?php if($c->checkgo('a_classtypes_','',1)){ ?><a href="#" onclick="JumpFrame('?a=left&l=classtypes','?c=a_classtypes');">栏目管理</a><?php } ?>
+        <?php if($c->checkgo('a_molds')){ ?><a href="#" onclick="JumpFrame('?a=left&l=molds','?c=a_molds');">频道管理</a><?php } ?>
+        <?php if($c->checkgo('a_funs')){ ?><a href="#" onclick="JumpFrame('?a=left&l=funs');">其他管理</a><?php } ?>
+		<?php if($c->checkgo('a_funs')){ ?><a href="#" onclick="JumpFrame('?a=left&l=funs','?c=a_member');"><strong>会员管理</strong></a><?php } ?>
+	
+        <a href="#" onclick="JumpFrame('?a=left&l=sys');">系统</a>      </div>
+    </div>
+</div>
+<?php } ?>
+
+<?php if($a==='left'){ ?>
+<div class="lefttop"><?php echo $lefttop ?></div>
+<div class="leftmenu"><?php echo $leftmenu ?></div>
+<?php } ?>
+
+<?php if($a=='main'){ ?>
+<div class="main">
+
+  <div style="padding:10px;">
+  <div align="center" style="padding:200px;">欢迎进入管理后台！</div>
+  </div>
+</div>
+<?php } ?>
+
+<?php if($a==='bottom'){ ?>
+<div style="background-color:#EEEEEE;" class="bottom">
+    <div class="a"></div>
+    <div class="b">
+    <?php echo syExt('site_title');?>
+    <?php include_once('include/fun/verification.php');echo verification(4); ?>
+    </div>
+</div>
+<?php } ?>
+
+</body>
+</html>

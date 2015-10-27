@@ -1,0 +1,68 @@
+
+<script src="{$GLOBALS['skin']}js/jquery-1.8.1.js"></script>
+
+<script type="text/javascript" src="{$GLOBALS['skin']}js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="{$GLOBALS['skin']}js/supersized.3.2.7.min.js"></script>
+<script type="text/javascript" src="{$GLOBALS['skin']}js/supersized.shutter.min.js"></script>
+
+
+<script type="text/javascript">
+<!--			
+			jQuery(function($){
+				
+				$.supersized({
+				
+					// Functionality
+					slide_interval          :   3000,		// Length between transitions
+					transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+					transition_speed	:   700,		// Speed of transition
+															   
+					// Components						
+					slide_links		:   'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+					slides 			:   [			// Slideshow Images
+
+									{ image: '{$GLOBALS['skin']}images/bg01.jpg', title: '', url: '' }
+									,
+									
+									{ image: '{$GLOBALS['skin']}images/bg02.jpg', title: '', url: '' }
+									,
+									
+									{ image: '{$GLOBALS['skin']}images/bg03.jpg', title: '', url: '' }
+									,
+									
+									{ image: '{$GLOBALS['skin']}images/bg04.jpg', title: '', url: '' }
+									,
+									
+									{ image: '{$GLOBALS['skin']}images/bg05.jpg', title: '', url: '' }
+									
+   								  
+   								    ,
+									
+									{ image: '{$GLOBALS['skin']}images/bg06.jpg', title: '', url: '' }
+									
+   								 
+   								    ,
+									
+									{ image: '{$GLOBALS['skin']}images/bg07.jpg', title: '', url: '' }
+									
+   								    ]
+
+								});
+				 $(".onmouse").mouseenter(function(){
+		                $('.show_wx').show();
+		            }).mouseleave(function(){
+		                $('.show_wx').hide();
+		            });
+				 $("#menu li").mouseenter(function() {
+		             $(this).addClass('active').show();
+		          }).mouseleave(function() {
+		             $(this).removeClass('active');
+		           })
+         });
+//-->
+</script>
+
+<script src="{$GLOBALS['skin']}js/json2.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_storage.js"></script>
+<script src="{$GLOBALS['skin']}js/jquery.collapse_cookie_storage.js"></script>
